@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digitale visitekaart</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f4f4;
+      color: #101820;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 420px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 300px;
+      background-image: url("banner.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: top center;
+      border-radius: 0;
+    }
+
+    
+
+    
+
+    
+
+    .intro {
+      margin-top: -10px;
+      text-align: center;
+      padding: 14px 24px 18px;
+    }
+
+    .intro h1 {
+      font-size: 24px;
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .intro p {
+      font-size: 13px;
+      color: #1d5a28;
+      font-weight: 600;
+    }
+
+    .accent-line {
+      width: 34px;
+      height: 3px;
+      background: #e30613;
+      border-radius: 10px;
+      margin: 14px auto 0;
+    }
+
+    .content {
+      padding: 0 28px 0;
+    }
+
+    /* CONTACT BUTTONS */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      background: #ffffff;
+      border: 1px solid #e7e7e7;
+      border-radius: 9px;
+      min-height: 55px;
+      padding: 8px 13px 8px 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-card .icon {
+      width: 39px;
+      height: 39px;
+      border-radius: 8px;
+      background: #101820;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 14px;
+      flex: 0 0 39px;
+    }
+
+    .contact-card .icon img {
+      width: 25px;
+      height: 25px;
+      object-fit: contain;
+    }
+
+    .contact-card .text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .contact-card .label {
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .contact-card .value {
+      font-size: 12px;
+      font-weight: 600;
+      color: #222;
+      word-break: break-word;
+    }
+
+    .arrow {
+      color: #155321;
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 700;
+      margin-left: 8px;
+    }
+
+    /* APPOINTMENT */
+    .appointment {
+      margin-top: 11px;
+      background: #1d5a28;
+      color: #ffffff;
+      border-radius: 7px;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      padding: 9px 13px;
+      text-decoration: none;
+      box-shadow: 0 4px 9px rgba(0, 0, 0, 0.12);
+    }
+
+    .appointment img {
+      width: 31px;
+      height: 31px;
+      object-fit: contain;
+      margin-right: 15px;
+    }
+
+    .appointment strong {
+      display: block;
+      font-size: 13px;
+      line-height: 1.1;
+    }
+
+    .appointment span {
+      display: block;
+      font-size: 9px;
+      line-height: 1.2;
+      opacity: 0.95;
+      margin-top: 2px;
+    }
+
+    .appointment .arrow {
+      color: #ffffff;
+      margin-left: auto;
+    }
+
+    /* SOCIAL */
+    .social-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 15px 0 12px;
+      color: #1d5a28;
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .social-title::before,
+    .social-title::after {
+      content: "";
+      height: 1px;
+      background: #1d5a28;
+      flex: 1;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 17px;
+    }
+
+    .socials a {
+      width: 39px;
+      height: 39px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid #eeeeee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
+    }
+
+    .socials img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    /* AD BANNER */
+    .ad-banner {
+      position: relative;
+      display: block;
+      width: calc(100% + 56px);
+      margin-left: -28px;
+      aspect-ratio: 2.15 / 1;
+      overflow: hidden;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      background-image: url("reclame.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-color: transparent;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.11);
+    }
+
+    .buy-link {
+      position: absolute;
+      left: 32px;
+      bottom: 62px;
+      width: 175px;
+      display: block;
+    }
+
+    .buy-link img {
+      width: 100%;
+      display: block;
+    }
+
+    
+
+    /* FOOTER */
+    
+
+    @media (max-width: 360px) {
+      .content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero {
+        height: 195px;
+      }
+
+      .intro h1 {
+        font-size: 21px;
+      }
+
+      .ad-content {
+        width: 62%;
+      }
+
+      .buy-button {
+        min-width: 140px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero"></section>
+
+    <section class="intro">
+      <h1>Tuinmachines Van Achter</h1>
+      <p>Uw partner voor alle tuinmachines</p>
+      <div class="accent-line"></div>
+    </section>
+
+    <section class="content">
+      <div class="contact-list">
+        <a class="contact-card" href="tel:038898834">
+          <div class="icon"><img src="telefoon.png" alt="Telefoon" /></div>
+          <div class="text">
+            <div class="label">Bel ons</div>
+            <div class="value">03 889 88 34</div>
+          </div>
+          <div class="arrow">›</div>
+        </a>
+
+        <a class="contact-card" href="https://www.vanachtertuinmachines.be" target="_blank" rel="noopener">
+          <div class="icon"><img src="website.png" alt="Website" /></div>
+          <div class="text">
+            <div class="label">Website</div>
+            <div class="value">www.vanachtertuinmachines.be</div>
+          </div>
+          <div class="arrow">›</div>
+        </a>
+
+        <a class="contact-card" href="mailto:info@vanachtertuinmachines.be">
+          <div class="icon"><img src="email.png" alt="E-mail" /></div>
+          <div class="text">
+            <div class="label">E-mail</div>
+            <div class="value">info@vanachtertuinmachines.be</div>
+          </div>
+          <div class="arrow">›</div>
+        </a>
+
+        <a class="contact-card" href="https://www.google.com/maps/search/?api=1&query=Klein+Mechelen+5+2880+Bornem" target="_blank" rel="noopener">
+          <div class="icon"><img src="location.png" alt="Adres" /></div>
+          <div class="text">
+            <div class="label">Adres</div>
+            <div class="value">Klein Mechelen 5, 2880 Bornem</div>
+          </div>
+          <div class="arrow">›</div>
+        </a>
+      </div>
+
+      <a class="appointment" href="tel:038898834">
+        <img src="afspraak.png" alt="Afspraak" />
+        <div>
+          <strong>Maak een afspraak</strong>
+          <span>Wij helpen u graag verder!</span>
+        </div>
+        <div class="arrow">›</div>
+      </a>
+
+      <div class="social-title">Volg onze socials</div>
+
+      <div class="socials">
+        <a href="https://www.facebook.com/vanachtertuinmachines" target="_blank" rel="noopener" aria-label="Facebook">
+          <img src="facebook.png" alt="Facebook" />
+        </a>
+      </div>
+
+      <div class="ad-banner">
+        <a class="buy-link" href="https://www.tap2go.be/" target="_blank" rel="noopener">
+          <img src="kopen.png" alt="Koop nu" />
+        </a>
+
+        
+      </div>
+    </section>
+
+    
+  </main>
+</body>
+</html>
