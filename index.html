@@ -14,7 +14,7 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f4f4f4;
+      background: #ffffff;
       color: #101820;
     }
 
@@ -32,7 +32,7 @@
       position: relative;
       height: 300px;
       background-image: url("banner.png");
-      background-size: contain;
+      background-size: 100% 100%;
       background-repeat: no-repeat;
       background-position: top center;
       border-radius: 0;
@@ -45,7 +45,7 @@
     
 
     .intro {
-      margin-top: -10px;
+      margin-top: -24px;
       text-align: center;
       padding: 14px 24px 18px;
     }
@@ -68,11 +68,11 @@
       height: 3px;
       background: #e30613;
       border-radius: 10px;
-      margin: 14px auto 0;
+      margin: 8px auto 0;
     }
 
     .content {
-      padding: 0 28px 0;
+      padding: 0 28px 60px;
     }
 
     /* CONTACT BUTTONS */
@@ -231,25 +231,28 @@
       display: block;
       width: calc(100% + 56px);
       margin-left: -28px;
-      aspect-ratio: 2.15 / 1;
+      margin-top: -4px;
       overflow: hidden;
       padding: 0;
       border: none;
       border-radius: 0;
       box-shadow: none;
-      background-image: url("reclame.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center top;
-      background-color: transparent;
-      text-decoration: none;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.11);
+      background: #ffffff;
+    }
+
+    .ad-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: none;
     }
 
     .buy-link {
       position: absolute;
       left: 32px;
-      bottom: 62px;
+      bottom: 72px;
       width: 175px;
       display: block;
     }
@@ -356,6 +359,7 @@
       </div>
 
       <div class="ad-banner">
+        <img class="ad-image" src="reclame.png" alt="Bestel nu uw smartgadgets" />
         <a class="buy-link" href="https://www.tap2go.be/" target="_blank" rel="noopener">
           <img src="kopen.png" alt="Koop nu" />
         </a>
