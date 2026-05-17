@@ -30,12 +30,15 @@
     /* HERO */
     .hero {
       position: relative;
-      height: 300px;
-      background-image: url("banner.png");
-      background-size: 100% 100%;
-      background-repeat: no-repeat;
-      background-position: top center;
+      width: 100%;
+      background: none;
       border-radius: 0;
+    }
+
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     
@@ -273,8 +276,9 @@
         padding-right: 20px;
       }
 
-      .hero {
-        height: 195px;
+      .hero img {
+        width: 100%;
+        height: auto;
       }
 
       .intro h1 {
@@ -294,7 +298,9 @@
 
 <body>
   <main class="page">
-    <section class="hero"></section>
+    <section class="hero">
+      <img src="banner.png" alt="Tuinmachines Van Achter" />
+    </section>
 
     <section class="intro">
       <h1>Tuinmachines Van Achter</h1>
